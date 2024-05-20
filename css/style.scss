@@ -1,0 +1,146 @@
+@use "_reset-edu";
+//no suelo usar import pero para este caso lo usaré
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    font-family: 'Open Sans';
+}
+
+.header{
+    width: 100%;
+    &__container{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.9375rem;
+    }
+    &__menu{
+        height: 100%;
+    }
+    
+}
+.nav{
+    &__link{
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: .125rem;
+        font-size: .75rem;
+        padding: 0rem 1.25rem;
+        transition: color .25s !important;
+        &:hover{
+            color: #8f8f8f;
+        }
+    }
+    &__link--is-active{
+        color: #8f8f8f;
+    }
+    &__wrapper{
+        display: flex;
+        flex-direction: row;
+    }
+    @media (max-width:47.9375rem){
+       display: none;
+    }
+}
+.menu{
+    &__icon{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: .4375rem;
+    }
+    &__line{
+        background:#000;
+        height: .125rem;
+        width: 1.5625rem;
+    }
+}
+.masonry-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+    margin-left: 10px;
+    @media (max-width:64rem){
+        grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
+        &__item{
+            grid-column: span 2;
+        }
+    }
+    @media (max-width:47.9375rem){
+        grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
+        padding: 0 10px;
+    }
+    &__item{
+        grid-column: span 1;
+        grid-row: span 2;
+        margin: 0 .625rem .625rem 0;
+    }
+    &__item--half{
+        grid-row:span 1;
+    }
+    &__item--full{
+        grid-row:span 2;
+    }
+    &__item--full-col{
+       grid-column: span 2;
+    }
+    &__link{
+        height: 100%;
+    }
+    &__image{
+        height: 100%;
+    }
+    @media (max-width:47.9375rem){
+        margin-left: 0;
+        &__item{
+            margin: 0 0 .625rem 0;
+        }
+    }
+}
+.footer{
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 9.375rem;
+        padding: 5rem 0 1.25rem 0 ;
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        width: 40%;
+    }
+    &__logo{
+        width: 100%;
+        max-width: 11.75rem;
+    }
+    &__text{
+        max-width: 24.5rem;
+        font-size: .9375rem;
+        line-height: 1.5rem;
+        color: #8f8f8f;
+        text-align: center;
+    }
+    
+    &__info{
+        font-size: .8125rem;
+        line-height: 2.0625rem;
+        text-transform: capitalize;
+        color: #8f8f8f;
+    }
+    @media (max-width:47.9375rem){
+        padding: 0 1.25rem;
+        &__container{
+            gap: 4.5rem;
+        }
+        &__content{
+            width: 100%;
+        }
+    }
+}

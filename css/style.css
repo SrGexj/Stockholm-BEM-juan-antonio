@@ -1,0 +1,293 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+/* Definimos las Custom properties */
+:root {
+  /* Colores */
+  --negro: #393939;
+  --main-color: #E6AE48;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before, *::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* (Opcional) */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  /* (Opcional) */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: "Open Sans";
+}
+
+.header {
+  width: 100%;
+}
+.header__container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.9375rem;
+}
+.header__menu {
+  height: 100%;
+}
+
+.nav__link {
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  font-size: 0.75rem;
+  padding: 0rem 1.25rem;
+  transition: color 0.25s !important;
+}
+.nav__link:hover {
+  color: #8f8f8f;
+}
+.nav__link--is-active {
+  color: #8f8f8f;
+}
+.nav__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 47.9375rem) {
+  .nav {
+    display: none;
+  }
+}
+
+.menu__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.4375rem;
+}
+.menu__line {
+  background: #000;
+  height: 0.125rem;
+  width: 1.5625rem;
+}
+
+.masonry-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  margin-left: 10px;
+}
+@media (max-width: 64rem) {
+  .masonry-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .masonry-gallery__item {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 47.9375rem) {
+  .masonry-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    padding: 0 10px;
+  }
+}
+.masonry-gallery__item {
+  grid-column: span 1;
+  grid-row: span 2;
+  margin: 0 0.625rem 0.625rem 0;
+}
+.masonry-gallery__item--half {
+  grid-row: span 1;
+}
+.masonry-gallery__item--full {
+  grid-row: span 2;
+}
+.masonry-gallery__item--full-col {
+  grid-column: span 2;
+}
+.masonry-gallery__link {
+  height: 100%;
+}
+.masonry-gallery__image {
+  height: 100%;
+}
+@media (max-width: 47.9375rem) {
+  .masonry-gallery {
+    margin-left: 0;
+  }
+  .masonry-gallery__item {
+    margin: 0 0 0.625rem 0;
+  }
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 9.375rem;
+  padding: 5rem 0 1.25rem 0;
+}
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  width: 40%;
+}
+.footer__logo {
+  width: 100%;
+  max-width: 11.75rem;
+}
+.footer__text {
+  max-width: 24.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  color: #8f8f8f;
+  text-align: center;
+}
+.footer__info {
+  font-size: 0.8125rem;
+  line-height: 2.0625rem;
+  text-transform: capitalize;
+  color: #8f8f8f;
+}
+@media (max-width: 47.9375rem) {
+  .footer {
+    padding: 0 1.25rem;
+  }
+  .footer__container {
+    gap: 4.5rem;
+  }
+  .footer__content {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
